@@ -1,7 +1,7 @@
 /**
  * Ksenia Lake
  * October 26, 2019
- * Prompt the user to input 10 values and store them into an array.
+ * Prompt the user to input SIZE values and store them into an array.
  * If there are any duplicate values in that array, remove them and print out the remaining values.
  *
  * note: will assume that 'values' == 'integers'
@@ -16,13 +16,13 @@ public class Ex3{
         // *******************************************
         // testing code :
         // *******************************************
-        // int size = 10;
+        // int SIZE = 10;
         // int[] dup = {1, 2, 3, 1, 3, 3, 7, 7, 9, 2};
         // int[] dup = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         // int[] dup = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
         // try with a different size, too:
-        // int size = 6;
+        // int SIZE = 6;
         // int[] dup = {1, 45, 67, 45, 32, 32};
         // yes! it works!
         // *******************************************
@@ -34,7 +34,7 @@ public class Ex3{
 
 
         // if you want, you can change the input array size
-        int size = 10;
+        int SIZE = 10;
 
         // obtain user input
         int[] dup = new int[size];
@@ -92,33 +92,6 @@ public class Ex3{
 
         System.out.println("Your original array is: " + Arrays.toString(dup));
         System.out.println("Your array with no duplicates is: " + Arrays.toString(noDup));
-
-
-        // ************************************************************************
-        // original implementation where I was trying to do this with an ArrayList
-        // this proved not helpful, and I found myself back in arrays after all.
-        // ************************************************************************
-        // Scanner keyboard = new Scanner(System.in);
-        // ArrayList<Integer> intList = new ArrayList<>();
-        // int userInt;
-        // boolean tooShort = false;
-        // // fill the ArrayList
-        // System.out.println("Please enter 10 integers, separated only by whitespace: ");
-        //
-        // // scan for integers in the line the user just inputted
-        // Scanner intScanner = new Scanner(keyboard.nextLine());
-        // for (int i = 0; i < 10; i++){
-        //     if (intScanner.hasNextInt()) {
-        //         userInt = intScanner.nextInt();
-        //         intList.add(userInt);
-        //     } else {
-        //         System.out.println("Please enter at least 10 integers!");
-        //         break;
-        //     }
-        // } // end for
-        // intScanner.close();
-        // keyboard.close();
-        // System.out.println(Arrays.toString(intList.toArray()));
 
     }
 }
