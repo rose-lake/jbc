@@ -37,21 +37,21 @@ public class Ex3{
         int SIZE = 10;
 
         // obtain user input
-        int[] dup = new int[size];
+        int[] dup = new int[SIZE];
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter " + size + " integers, separated only by whitespace: ");
+        System.out.println("Please enter " + SIZE + " integers, separated only by whitespace: ");
         // scan for integers in the line the user just inputted
         Scanner intScanner = new Scanner(keyboard.nextLine());
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < SIZE; i++){
             if (intScanner.hasNextInt()) {
                 dup[i] = intScanner.nextInt();
             } else {
-                System.out.println("Please enter at least " + size + "integers!");
+                System.out.println("Please enter at least " + SIZE + "integers!");
                 break;
             }
         }
         if (intScanner.hasNextInt()) {
-            System.out.println("You entered more than " + size + " integers. Only the first " + size + " will be used.");
+            System.out.println("You entered more than " + SIZE + " integers. Only the first " + SIZE + " will be used.");
         }
         intScanner.close();
         keyboard.close();
@@ -60,11 +60,11 @@ public class Ex3{
         // ********************************************
 
         // search for duplicate values
-        boolean[] isDup = new boolean[size];
+        boolean[] isDup = new boolean[SIZE];
         int dupCount = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
             if (!isDup[i]) { // optimization
-                for (int j = i+1; j < size; j++) { // compare for duplicates
+                for (int j = i+1; j < SIZE; j++) { // compare for duplicates
                     // note: j starts at i+1 so you don't compare value to itself
                     if (dup[i] == dup[j]) {
                         isDup[j] = true;    // set duplicate flag
@@ -79,11 +79,11 @@ public class Ex3{
         // so now we can easily set the size of our new, non-duplicates array:
         //          new size = original size - number of duplicates.
         //          note: new size >= 1 because of the way we built the dup test loop.
-        int[] noDup = new int[size-dupCount];
+        int[] noDup = new int[SIZE-dupCount];
         // create our own indexer for placing non-duplicate values into noDup array.
         int noDupIndex = 0;
         // run loop over original duplicate array.
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
             if (!isDup[i]) {                    // if the value is not a duplicate
                 noDup[noDupIndex] = dup[i];     // save the value into our noDup array
                 noDupIndex++;
