@@ -1,0 +1,91 @@
+# Week 1 Challenge Pseudo-Code
+
+## LIBRARIES
+
+will need to import Scanner and Random libraries.
+
+
+## PART 1
+
+necessary declarations/intializations:
+	a scanner object from system in, the "keyboard".
+	integer entered by user, we call it NUMBER here.
+	a boolean flag we will use to keep track if NUMBER is prime or not.
+
+the introduction:
+	welcome the user to the program
+	ask the user for integer input greater than 1
+	take in the user input into NUMBER.
+	clear the keyboard for next use (the end of line).
+
+the process:
+
+	IF: Check that the user entered a number greater than `1`.
+
+		IF: Check if the user entered TWO. 
+
+			This is a special case. If yes, print it is prime.
+
+		ELSE: (number is not 2, it is something else, so we check)
+			
+			First, set the boolean flag to true. this is counter-intuitive but it makes sense. 
+			we will only be checking for the is *not* prime condition, and then we will change the flag to false.
+			
+			LOOP: COUNTER starts at 2. COUNTER goes up to NUMBER/2 (see note**). COUNTER increments by 1.
+				IF: check if NUMBER % COUNTER equals ZERO. 
+					if so, number is not prime.
+					print out the number is not prime response.
+					set boolean flag IS_PRIME to false.
+					BREAK out of LOOP.
+					we are done and do not neet to do any more checking, because we now know that NUMBER is not prime.
+				ENDIF.
+			LOOPEND.
+			IF: check boolean flag IS_PRIME is still true.
+				This means that the number was actually Prime.
+				print out the number is prime response.
+			ENDIF.
+	
+		ENDIF. (where we checked if equals 2)
+		
+	ELSE: (user did not enter number > 1) 
+	
+		print a message: you didn't enter a valid input.
+	
+	ENDIF. (where we checked if >1)
+	
+	
+clean-up:
+	Thank the user for playing.
+	Close our keyboard resource.
+
+## PART 2
+
+necessary declarations/initializations
+	do not need to redeclare/initialize scanner object
+	initialize "randomGenerator" Random object :: it is of type Random() from the java.util.Random library
+	initialize integer "randomInt" which will be created using "randomGenerator"
+	initialize "start" and "end", our RANGE boundaries, to start = 1 and end = 250.
+	
+
+introduction:
+	welcome the user to the program.
+	generate a random number based on RANGE. this is done as follows:
+	
+	GENERATE RANDOM NUMBER:
+	1. call the function nextInt() on the randomGenerator object.
+	2. pass in (RANGE + 1) as a parameter to nextInt(). (RANGE+1) represents is an upper bound. 
+	   the function returns a random number from zero to upper bound. 
+	   the function is exclusive of the upper bound, 
+	   so we must add 1 because we are thinking of our range as inclusive on both ends. 
+	   note that we are assuming end > start and defining RANGE = end - start. 
+	3. finally, we must add on "start" to the result we get back from that function call.
+	   this is to set our result to be within our actual range.
+	   the function returns zero to upper bound.
+	   we want to return start to end.
+	   this last step accomplishes that.
+
+process:
+	run the exact same code as for PART 1 process, except replace all instances of NUMBER with randomNum.
+	also, you do not need to check if randomInt > 1, so you pick up the code from inside of there, starting at if == 2.
+
+after this code is written, we will move the "clean-up" section here.
