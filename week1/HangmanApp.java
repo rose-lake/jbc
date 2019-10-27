@@ -56,7 +56,7 @@ public class HangmanApp {
         // // **********************************
         // // testing code
         // // **********************************
-        System.out.println("shhhhhhh! " + word + " shhhhhhh!");
+        // System.out.println("shhhhhhh! " + word + " shhhhhhh!");
         // System.out.println(flags);
         // System.out.println("length of flags is : " + flags.size());
         // System.out.println("length of hangman is : " + hangman.length);
