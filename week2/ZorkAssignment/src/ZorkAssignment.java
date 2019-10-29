@@ -1,19 +1,18 @@
-/**
- * Zork Game Assignment
- * Team: Soheila & Ksenia
- * Monday, October 28, 2019
+/*
+  Zork Game Assignment
+  Team: Soheila & Ksenia
+  Monday, October 28, 2019
  */
 
 import java.util.Scanner;
 import java.util.Random;
-import java.util.Arrays;
 
 public class ZorkAssignment {
 
-    public static boolean secretOpen;
-    public static int numberVisited;
-    public static int rooms = 8;             // the total number of rooms we have in our code!
-    public static boolean[] roomsVisited = new boolean[rooms];  // by default initializes to all false
+    private static boolean secretOpen;
+    private static int numberVisited;
+    private static int rooms = 8;             // the total number of rooms we have in our code!
+    private static boolean[] roomsVisited = new boolean[rooms];  // by default initializes to all false
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -42,7 +41,7 @@ public class ZorkAssignment {
         while (play) {
             if (choice == 0) {
                 play = false;
-                ghost();
+                quit();
             } else if (choice == 1) {
                 choice = roomOne();
             } else if (choice == 2) {
@@ -63,23 +62,27 @@ public class ZorkAssignment {
 
         } // end play loop
 
+        keyboard.close();
+
     } // end main
 
-    public static void ghost(){
-        Random randomGenerator = new Random();
-        int random = randomGenerator.nextInt(4) + 1;   // make it random in the range of 1 through 4
+    private static void quit(){
 
-        // how many of the total rooms did we see?
+        // how many (out of the total number of rooms possible) did we see?
         int counter = 0;
         for (int i = 0; i < rooms; i++) {
-            if (roomsVisited[i] == true) {
+            if (roomsVisited[i]) {
                 counter++;
             }
         }
         System.out.println("You saw " + counter + " out of a possible " + rooms + " rooms!");
 
+        // also: how many rooms did we walk through while exploring?
         System.out.println("While exploring the castle, you walked through " + numberVisited + " rooms!");
 
+        // ghost! 25% chance it will follow on exit.
+        Random randomGenerator = new Random();
+        int random = randomGenerator.nextInt(4) + 1;   // make it random in the range of 1 through 4
         if (random == 1) {
             System.out.println("\n*** You are being followed by a ghost! ***\n");
         }
@@ -87,9 +90,10 @@ public class ZorkAssignment {
         System.out.println("Goodbye!");
     }
 
-    public static int roomOne() {
+    private static int roomOne() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[0] = true;     // room # - 1 = index #
@@ -100,20 +104,25 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("n")) {
-                return 2;  // will call method roomTwo from inside main()
+                room = 2;
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (N:North, Q:Quit): ");
             }
         }
 
+        return room;
+
     } // end room one method
 
 
-    public static int roomTwo() {
+    private static int roomTwo() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[1] = true;     // room # - 1 = index #
@@ -124,24 +133,31 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("s")) {
-                return 1;  // will call method roomOne from inside main()
+                room = 1;
+                break;
             } else if(answer.equalsIgnoreCase("w")){
-                return 3; // will call method roomThree from inside main()
+                room = 3;
+                break;
             } else if(answer.equalsIgnoreCase("e")){
-                return 4; // will call method roomFour from inside main()
+                room = 4;
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (S:South, W:West, E:East, Q:Quit): ");
             }
         } //end while loop - room 2
 
+        return room;
+
     } //end-room two method
 
 
-    public static int roomThree() {
+    private static int roomThree() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[2] = true;     // room # - 1 = index #
@@ -152,21 +168,27 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("n")) {
-                return 5;  // will call method roomTwo from inside main()
+                room = 5;
+                break;
             } else if (answer.equalsIgnoreCase("e")) {
-                return 2;
+                room = 2;
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             }else {
                 System.out.println("Please enter a valid choice (N:North, E:East, Q:Quit): ");
             }
         }
 
+        return room;
+
     } // end room three method
 
-    public static int roomFour() {
+    private static int roomFour() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[3] = true;     // room # - 1 = index #
@@ -177,21 +199,27 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("w")) {
-                return 2;  // will call method roomTwo from inside main()
+                room = 2;
+                break;
             } else if (answer.equalsIgnoreCase("n")) {
-                return 7; // will call method roomSeven from inside main()
+                room = 7;
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (W:West, N:North, Q:Quit): ");
             }
         } //end while loop - room 4
 
+        return room;
+
     } // end room four method
 
-    public static int roomFive() {
+    private static int roomFive() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[4] = true;     // room # - 1 = index #
@@ -202,19 +230,24 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("s")) {
-                return 3;  // will call method roomTwo from inside main()
+                room = 3;
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (S:South, Q:Quit): ");
             }
         }
 
+        return room;
+
     } // end room five method
 
-    public static int roomSix() {
+    private static int roomSix() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[5] = true;     // room # - 1 = index #
@@ -236,11 +269,14 @@ public class ZorkAssignment {
             while (true) {
                 answer = keyboard.nextLine();
                 if (answer.equalsIgnoreCase("e")) {
-                    return 7;
+                    room = 7;
+                    break;
                 } else if (answer.equalsIgnoreCase("*")) {
-                    return 8; // will call method roomEight from inside main()
+                    room = 8;
+                    break;
                 } else if (answer.equalsIgnoreCase("q")) {
-                    return 0;
+                    room = 0;
+                    break;
                 } else {
                     System.out.println("Please enter a valid choice (E:East, *:Secret Room, Q:Quit): ");
                 }
@@ -251,21 +287,26 @@ public class ZorkAssignment {
             while (true) {
                 answer = keyboard.nextLine();
                 if (answer.equalsIgnoreCase("e")) {
-                    return 7;
+                    room = 7;
+                    break;
                 } else if (answer.equalsIgnoreCase("q")) {
-                    return 0;
+                    room = 0;
+                    break;
                 } else {
                     System.out.println("Please enter a valid choice (E:East, Q:Quit): ");
                 }
             } //end while loop :: secret NOT open
         } // end if-else whether secret room is available or not
 
+        return room;
+
     } // end room six method
 
 
-    public static int roomSeven() {
+    private static int roomSeven() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[6] = true;     // room # - 1 = index #
@@ -276,22 +317,28 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("W")) {
-                return 6;  // will call method roomSix from inside main()
+                room = 6;  // will call method roomSix from inside main()
+                break;
             } else if (answer.equalsIgnoreCase("S")) {
-                return 4; // will call method roomFour from inside main()
+                room = 4; // will call method roomFour from inside main()
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (W:West, S:South, Q:Quit): ");
             }
         } //end while loop - room 7
 
+        return room;
+
     } //end- roomSeven method
 
 
-    public static int roomEight() {
+    private static int roomEight() {
         Scanner keyboard = new Scanner(System.in);
         String answer;
+        int room;
 
         numberVisited++;
         roomsVisited[7] = true;     // room # - 1 = index #
@@ -302,13 +349,17 @@ public class ZorkAssignment {
         while (true) {
             answer = keyboard.nextLine();
             if (answer.equalsIgnoreCase("W")) {
-                return 6;  // will call method roomSix from inside main()
+                room = 6;  // will call method roomSix from inside main()
+                break;
             } else if (answer.equalsIgnoreCase("q")) {
-                return 0;
+                room = 0;
+                break;
             } else {
                 System.out.println("Please enter a valid choice (W:West, Q:Quit): ");
             }
         }
+
+        return room;
 
     } // end room eight method
 
