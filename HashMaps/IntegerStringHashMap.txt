@@ -1,14 +1,5 @@
 1	one
 2	two
-98	ninety-eight
 3	three
 4	four
 5	five
-101	one-hundred and one
-38	thirty-eight
-10	ten
-11	eleven
-12	twelve
-13	thirteen
-21	twenty-one
-28	twenty-eight
