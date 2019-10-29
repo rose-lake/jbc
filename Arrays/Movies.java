@@ -26,11 +26,11 @@ public class Movies{
 			answer = keyboard.nextLine();
 			if (!answer.equalsIgnoreCase("q")) {
 				movieList.add(answer);
-			} 
+			}
 			else {
 				break;
 			}
-        }
+		}
 
 		// print out the user-generated movie List
         System.out.println(Arrays.toString(movieList.toArray()));
