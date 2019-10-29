@@ -48,21 +48,41 @@ public class FullEliza {
                 break;
             }
 
-            // process the results and respond
-            split = answer.toLowerCase().split(" ");
-            System.out.println(Arrays.toString(split));
-            response = processArray(split);
-            respond(response);
+            // randomly decide whether to hedge or respond
+            Random randomGenerator = new Random();
+            int randomInt = randomGenerator.nextInt(2);   // returns a 1 or a zero
+            if (randomInt == 1) {
+                hedge();
+            }
+            else {
+                // process the results and respond
+                split = answer.toLowerCase().split(" ");
+                response = processArray(split);
+                respond(response);
 
-        } // end while
+                // note: this is the one-line version of above (functional programming style, maybe) ::
+                // respond(processArray(answer.toLowerCase().split(" ")));
+            }
+
+        } // end "play loop"
+
+        keyboard.close();
 
     } // end main
+
+    private static void hedge(){
+
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(hedges.size());
+        System.out.println(hedges.get(randomInt));
+
+    }
 
     private static void respond(String[] response) {
 
         Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(qualifiers.size()) + 1;
-        System.out.print(qualifiers(randomInt));
+        int randomInt = randomGenerator.nextInt(qualifiers.size());   // keep the zero for indexing! (don't add 1)
+        System.out.print(qualifiers.get(randomInt));
 
         for (int i=0; i < (response.length-1); i++) {   // treat all but the last element the same
             System.out.print(response[i] + " ");
