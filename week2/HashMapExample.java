@@ -56,7 +56,7 @@ public class HashMapExample
             System.out.println("File does not exist!");
         }
 
-        //print both the key and the value on same line
+        // print both the key and the value on same line
         // for each key in the key set write the key, a tab and the value
         for (String key : map.keySet()) {
             System.out.println("write this line: " + key);
