@@ -29,23 +29,28 @@ public class IntermediateEliza {
             System.out.print("Enter your response here or \"Q\" to quit: ");
             answer = keyboard.nextLine();
 
-            // break on "q" or "i am feeling great"
-            if (answer.equalsIgnoreCase("q") || answer.equalsIgnoreCase("i am feeling great")) { break; }
+            // if user wants to quit, break.
+            if (answer.equalsIgnoreCase("q")) { break; }
+            // also break on "i am feeling great"
+            if (answer.equalsIgnoreCase("i am feeling great")) {break;}
+            // these can be combined, but I'm waiting to see what full eliza requires
 
             // process the results and respond
             split = answer.toLowerCase().split(" ");
             System.out.println(Arrays.toString(split));
             response = processArray(split);
             respond(response);
+
         } // end while
 
     } // end main
 
     private static void respond(String[] response) {
         System.out.print("Why do you say that ");
-        for (int i=0; i < response.length; i++) {
+        for (int i=0; i < (response.length-1); i++) {   // treat all but the last element the same
             System.out.print(response[i] + " ");
         }
+        System.out.print(response[(response.length-1)]);  // last element without a space after
         System.out.println("?");
     }
 
