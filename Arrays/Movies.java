@@ -9,10 +9,11 @@
 import java.util.Scanner;
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.Arrays;   // just in case ;)
+import java.util.Arrays;
 import java.util.Random;
 
 public class Movies{
+	
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -20,15 +21,31 @@ public class Movies{
         String answer;
 
         // request user input:
-        do {
+        while (true) {
             System.out.println("Please enter the name of a movie, or \"Q\" to quit:");
-            answer = keyboard.nextLine();
-            movieList.add(answer);
-        } while (!answer.equalsIgnoreCase("q"));
+			answer = keyboard.nextLine();
+			if (!answer.equalsIgnoreCase("q")) {
+				movieList.add(answer);
+			} 
+			else {
+				break;
+			}
+        }
 
-        keyboard.close();
-        System.out.println(Arrays.toString(intList.toArray()));
-
-
-    }
-}
+		// print out the user-generated movie List
+        System.out.println(Arrays.toString(movieList.toArray()));
+		
+		// print it out in alphabetical order
+		Collections.sort(movieList);
+		System.out.println(Arrays.toString(movieList.toArray()));
+		
+		// randomly choose one to suggest to the user
+		Collections.shuffle(movieList);
+		System.out.println("You should watch a movie! How about " + movieList.get(0) + "?");
+		
+		// close your resource
+		keyboard.close();
+        
+    } // end main
+	
+} // end class
