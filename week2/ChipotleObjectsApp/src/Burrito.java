@@ -16,8 +16,7 @@ public class Burrito {
     //*****************
 
     // default constructor
-    public Burrito(){
-    }
+    public Burrito(){}
 
     // overloaded constructor
     public Burrito(String rice, String bean, String meat, String salsa, String veggies){
