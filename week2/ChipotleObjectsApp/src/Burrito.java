@@ -65,4 +65,8 @@ public class Burrito {
         this.veggies = veggies;
     }
 
+    public void displayText(int burritoNumber){
+        System.out.println("Burrito " + burritoNumber + ": " + rice + ", " + meat + ", " + bean + ", " + salsa + ", "+ veggies + ".");
+    }
+
 }
