@@ -21,6 +21,6 @@ public class ChipotleObjects {
 
         // initialize an array of burrito class
         Burrito[] burritosArray = new Burrito[25];
-        
+
     }
 }
