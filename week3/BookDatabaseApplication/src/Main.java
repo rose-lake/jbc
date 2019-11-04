@@ -29,6 +29,12 @@ public class Main {
         System.out.println("\n\nPrinting out myBookDB.getBook("+mySKU1+") using myBook.getDisplayText()");
         System.out.println("\n\nmyBook ::\n" + myBook1.getDisplayText());
 
+        // looking for HashCode
+        // this is super-cool because it verifies that my Singleton implementation **really works**!
+        System.out.println("\n*** my book's hashCode ***\n\t" + myBook1.hashCode());
+        Book myBook2 = myBookDB.getBook(mySKU1);
+        System.out.println("\n*** my book 2's hashCode ***\n\t" + myBook2.hashCode());
+
         // test code ::
         String mySKU2 = "Zombie1005";
         Book myBook2 = myBookDB.getBook(mySKU2);
