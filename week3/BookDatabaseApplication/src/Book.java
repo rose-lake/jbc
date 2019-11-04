@@ -29,7 +29,7 @@ public class Book {
     // This method returns a string containing the author, title and description.
     //****************************************************************************
     public String getDisplayText(){
-        return "Author: " + author + "\nTitle: " + title + "\nDescription: " + description;
+        return "\tAuthor: " + author + "\n\tTitle: " + title + "\n\tDescription: " + description;
     }
 
     // *************
@@ -115,7 +115,7 @@ public class Book {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inStock=" + inStock +
+                ", quantityInStock=" + quantityInStock +
                 '}';
     }
-
 }
