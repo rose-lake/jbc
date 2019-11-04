@@ -1,7 +1,7 @@
 public class Child extends Human {
     private String mood;
     private Brain brain;
-    boolean happy;
+    private boolean happy;
 
     public Child(){}
 
@@ -39,4 +39,12 @@ public class Child extends Human {
         System.out.println("Bla bla bla...");
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " :: Child{\n" +
+                "mood='" + mood + '\'' +
+                ", brain=" + brain +
+                ", happy=" + happy +
+                '}';
+    }
 }
