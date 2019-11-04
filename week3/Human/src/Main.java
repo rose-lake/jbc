@@ -119,7 +119,7 @@ public class Main {
         // ********************** FUTURE NOTE for SPRINGBOOT ********************
         // In springboot you will use "@ AutoWired" to ensure there is only one instance
         // **********************************************************************
-        
+
     }
 
     // this shows another way to do it as opposed to defining the display method in the Human class
