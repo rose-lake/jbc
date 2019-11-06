@@ -11,7 +11,7 @@ public class Plane extends Vehicle {
     public Plane(String name, String color, double speed, double altitude){
         super(name, color, speed);
         this.altitude = altitude;
-        System.out.println("In Plane constructor");
+        //System.out.println("In Plane constructor");
     }
 
     @Override
@@ -27,7 +27,6 @@ public class Plane extends Vehicle {
 
     public String decreaseAltitude() {
         altitude -= 1000;
-
         if (altitude < 0) {
             altitude = 0;
             return "The plane has crashed.";
@@ -39,7 +38,7 @@ public class Plane extends Vehicle {
     public String takeOff(){
         altitude = 5000;
         speed = 300;
-        return "The plane has successfully taken off!";
+        return "The plane has successfully taken off! It is flying " + speed + " mph at an altitude of " + altitude + " feet";
     }
 
     public String fly() {
@@ -48,7 +47,8 @@ public class Plane extends Vehicle {
 
     public String land() {
         altitude = 0;
-        return "The plan has landed! Huzzah!";
+        speed = 0;
+        return "The plane has landed! Huzzah!";
     }
 
 

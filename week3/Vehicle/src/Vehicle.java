@@ -9,7 +9,7 @@ public abstract class Vehicle {
     Vehicle(){}
 
     public Vehicle(String name, String color, double speed) {
-        System.out.println("In Vehicle constructor");
+        //System.out.println("In Vehicle constructor");
         this.name = name;
         this.color = color;
         this.speed = speed;
