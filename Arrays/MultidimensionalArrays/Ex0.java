@@ -31,7 +31,7 @@ public class Ex0 {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.print(studentGradebook[i][j] + "\t");
+                System.out.print("[" + i + "][" + j + "]  " + studentGradebook[i][j] + "\t");
             }
             System.out.print("\n");
         }
