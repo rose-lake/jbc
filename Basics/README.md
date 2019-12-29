@@ -1,17 +1,5 @@
-# Week One
+## Basics
 
-## Canvas Basic Java Exercises
+This contains my implementations of assignments and exercises for guiding students through Java fundamentals.
 
-The daily work runs through the Basic Java exercises from canvas.
-
-All of Part 1 examples are complete (with the exception of one or two trivial ones).
-
-Some of Part 2 examples are also complete and listed in this 'week1' directory.
-
-## Challenges
-
-Week 1 Challenge is the 'tell a user if a number is prime' challenge.
-
-## Concepts
-
-The overall concepts go from variables, through control structures, and into arrays.
+The concepts include variables, control structures, strings, arrays, and hashmaps, as well as some file i/o.
